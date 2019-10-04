@@ -12,12 +12,8 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
-int sat_act, v_scores, m_scores;
 
-int second;
-
-float applicant1_scores, applicant2_scores;
-
+//Functions Used in the code
 void admitMessage();
 float getoverall_scores();
 int getExamType();
@@ -31,6 +27,7 @@ void display_scores(float, float);
 
 
 int main() {
+    int applicant1_scores = 0, applicant2_scores = 0;
     admitMessage();
     admitMessage();
     display_scores(applicant1_scores, applicant2_scores);
@@ -39,6 +36,7 @@ int main() {
 }
 //Asking about the exam taken by the user
 void admitMessage(){
+    int sat_act = 0, second = 0;
     if (second == 2){
         cout << "Information of the applicant 2: ";
     }
@@ -67,6 +65,8 @@ int getExamType(){
 }
 // getting the overall score of the applicant
 float getoverall_scores(){
+    float applicant1_scores, applicant2_scores;
+    int second = 0, sat_act = 0;
     float sat_applicant = 0.0, act_applicant = 0.0, gpa_scores = 0.0;
     if (second == 2){
         if (sat_act == 1){
@@ -96,8 +96,9 @@ float getsat_scores(){
     return sat_applicant;
 }
 //Calculating the SAT Scores for the user
-float calcsat_scores(int math, int verbal){
-    float sat_scores = ((2.0 * verbal) + math) / 24.0;
+float calcsat_scores(){
+    int m_scores = 0, v_scores = 0;
+    float sat_scores = ((2.0 * v_scores) + m_scores) / 24.0;
     return sat_scores;
 }
 //Getting the User input for GPA
@@ -137,6 +138,7 @@ float calcact_scores(int e_scores, int math_scores, int r_scores, int s_scores )
 }
 // Displays the scores and compare the two applicants
 void display_scores(){
+    float applicant1_scores = 0.0, applicant2_scores = 0.0;
     cout << "The overall score of first applicant = %0.3f \n";
     cout << "The overall score of second applicant = %0.3f \n";
     if (applicant1_scores > applicant2_scores){
